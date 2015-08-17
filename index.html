@@ -1,0 +1,784 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>JavaScript for Beginners</title>
+
+		<meta name="description" content="Dev Bootcamp Evening Workshop Series: JavaScript for Beginners">
+		<meta name="author" content="Sam Blackman">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/blood.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<style>
+      strong  { font-weight: normal; color: orange; font-variant: normal; }
+      .breakout { color: orange; }
+      .reveal a:not(.image) { color: orange; }
+      .reveal pre {box-shadow:none; margin-bottom: 0;}
+      .reveal code { border: 4px solid white; }
+    </style>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+<div class="reveal">
+
+      <div class="slides">
+        <section>
+          <h1>JavaScript for Beginners</h1>
+          <h3>Building Interactive Web Apps on the Frontend</h3>
+          <p>
+            <small>Brought to you by <a href="http://devbootcamp.com">Dev Bootcamp</a></small>
+          </p>
+        </section>
+
+        <!-- Intro / Outline -->
+        <section>
+          <h2>Hi everyone!</h2>
+          <p>Some "rules" for today:</p>
+          <ul>
+            <li>We are here to support your learning!</li>
+            <li>Ask <strong>every single question</strong> you have.</li>
+            <li>Take advantage of the amazing person next to you!</li>
+            <li>If you want to do it, <strong>do it</strong>. Have fun with this.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Welcome!</h2>
+          <p>Let's get to know each other!</p>
+          <ul>
+            <li>What's your name, and who are you?</li>
+            <li>What do you want to get out of this session?</li>
+            <li>What's <strong>something quirky</strong> about you?</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Outline</h2>
+          <ul>
+            <li class="fragment">Tools for learning and writing JavaScript</li>
+            <li class="fragment">Different ways to represent data in JS</li>
+            <li class="fragment breakout">Breakout - use your tools!</li>
+            <li class="fragment">Loops, conditionals and functions</li>
+            <li class="fragment breakout">Breakout - play with JavaScript!</li>
+            <li class="fragment">Intro to JQuery</li>
+            <li class="fragment">Changing a webpage based on user interaction</li>
+            <li class="fragment breakout">Breakout - dynamically create a webpage!</li>
+          </ul>
+        </section>
+
+        <section>
+        	<h2>JavaScript tools</h2>
+        	<ul>
+        		<li>A web browser (Chrome)</li>
+        		<li>A text editor (Sublime Text)</li>
+        		<li>jQuery</li>
+        		<li>Research techniques</li>
+        	</ul>
+        </section>
+
+        <section>
+        	<h2>Chrome</h2>
+        	<img src="img/chrome.jpg">
+        	<p>A web browser with great JavaScript development tools.</p>
+        </section>
+
+        <section>
+        	<h2>Sublime Text</h2>
+        	<img src="img/sublime.jpg">
+        	<p>A powerful but user-friendly text editor.</p>
+        </section>
+
+        <section>
+        	<h2>jQuery</h2>
+        	<img src="img/jquery-modern-logo.jpg">
+        	<p>A JavaScript library that makes it easier for us to interact with webpages.</p>
+        </section>
+
+        <section>
+        	<h2>Research techniques</h2>
+        	<p>Google search and autocomplete will quickly become your best friend</p>
+        	<img src="img/google-autocomplete.jpg">
+        </section>
+
+        <section>
+        	<h2>Research techniques</h2>
+        	<p>Your ultimate goal is a super fast <strong>feedback loop</strong>.</p>
+        </section>
+
+        <section>
+        	<h2>Research techniques</h2>
+        	<p>Scan through the Google search results and work out which look most relevant to your issue.</p>
+        	<img src="img/google-search-results.jpg">
+        </section>
+
+        <section>
+        	<h2>Research techniques</h2>
+        	<p><span class="breakout">Cmd+Click</span> (Mac) or <span class="breakout">Ctrl+Click</span> a link to open it in a new tab. Open what you think are the three most promising results.</p>
+        	<img src="img/google-search-results-tabs.jpg">
+        </section>
+
+        <section>
+        	<h2>Research techniques</h2>
+        	<p>In my experience, I've found the following resources to be particularly helpful:</p>
+        	<ul>
+        		<li>Stack Overflow</li>
+        		<li>MDN (Mozilla Developer Network)</li>
+        		<li>W3 Schools</li>
+        		<li>Guides and blog posts</li>
+        	</ul>
+        </section>
+
+        <section>
+        	<h2>Research techniques</h2>
+        	<p>A quick note on Stack Overflow...</p>
+        	<p>Always remember that the section right at the top of the page is the question, not the answer!</p>
+        </section>
+
+        <section>
+        	<img src="img/stackoverflow.jpg">
+        </section>
+
+        <section>
+          <h2>Coding Basics</h2>
+          <h4>(through a JavaScript lens)</h4>
+          <p>A bunch of jargon:</p>
+          <ul>
+          	<li class="fragment">"variable"</li>
+          	<li class="fragment">"string"</li>
+          	<li class="fragment">"integer"</li>
+          	<li class="fragment">"boolean"</li>
+          	<li class="fragment">"return-value"</li>
+          	<li class="fragment">"array"</li>
+          	<li class="fragment">"object"</li>
+          </ul>
+          <p class="fragment">What does it all mean!?</p>
+        </section>
+
+        <section>
+          <h2>Variables</h2>
+          <p>A variable is a way of <strong>naming things</strong> so we have a reference to them later.</p>
+        </section>
+
+        <section>
+          <h2>Variables</h2>
+          <p>Think of variables as a <strong>label</strong> we can write on and apply to different things.</p>
+          <img src="img/post-it.png" width="50%"/>
+        </section>
+
+        <section>
+          <h2>Variables</h2>
+          <p>Let's come back to variables once we learn about a few different <strong>data types</strong> we can label.</p>
+        </section>
+
+        <section>
+          <h2>Strings</h2>
+          <p>A string is simply a <strong>sequence of characters</strong>. In fact, this sentence itself could be a string. This is what it would look like in JavaScript:</p>
+          <pre>
+	          <code data-trim class="javascript">
+	          	"In fact, this sentence itself could be a string."
+	          </code>
+          </pre>
+        </section>
+
+        <section>
+          <h2>Strings</h2>
+          <p>Strings can vary greatly in length, from entire novels...</p>
+          <pre>
+	          <code data-trim class="javascript" style="word-wrap: break-word;">
+	          	"Well, Prince, so Genoa and Lucca are now just family estates of the Buonapartes. But I warn you, if you don't tell me that this means war, if you still try to defend the infamies and horrors perpetrated by that Antichrist—I really believe he is Antichrist—I will have nothing more to do with you and you are no longer my friend, no longer my 'faithful slave,' as you call yourself! But how do you do? I see I have frightened you—sit down and tell me all the news..."
+	          </code>
+          </pre>
+        </section>
+
+        <section>
+          <h2>Strings</h2>
+          <p>...to single words...</p>
+          <pre>
+	          <code data-trim class="javascript">
+	          	"hello"
+	          </code>
+          </pre>
+        </section>
+
+        <section>
+          <h2>Strings</h2>
+          <p>...to nothing at all.</p>
+          <pre>
+	          <code data-trim class="javascript">
+	          	""
+	          </code>
+          </pre>
+          <p>(this is known as an <strong>empty string</strong>)</p>
+        </section>
+
+        <section>
+          <h2>Strings</h2>
+          <p>Strings can contain numbers and don't have to make sense at all:</p>
+          <pre>
+	          <code data-trim class="javascript">
+	          	"9m52bqu4239wl"
+	          </code>
+          </pre>
+        </section>
+
+        <section>
+          <h2>Strings</h2>
+          <p>The <strong>syntax</strong> for creating strings in JavaScript is to wrap any number of characters in single or double quotes.</p>
+          <pre>
+	          <code data-trim class="javascript">
+"This is a string."
+'This is also a string.'
+	          </code>
+          </pre>
+        </section>
+
+        <section>
+          <h2>Try it yourself!</h2>
+          <p>Open up your handy dandy <strong>JavaScript console</strong> by pressing <span class="breakout">Cmd+Opt+J</span> on Mac or <span class="breakout">Ctrl+Shift+J</span> on other systems.</p>
+          <img src="img/javascript-console.jpg">
+          <aside class="notes">
+          	If you want to clear out the cruft in the console press Cmd+K (Mac) or Ctrl+L (PC).
+          	What happens when you type in a string with quote marks and press enter?
+          	What happens if you type those same characters in without quote marks and press enter?
+          	What happens when you add two strings together with the plus symbol?
+          </aside>
+        </section>
+
+        <section>
+        	<h2>Strings</h2>
+        	<p>Strings are one of the most common <strong>data types</strong> in every programming language. Get used to seeing, using and manipulating strings!
+        	</p>
+        </section>
+
+        <section>
+          <h2>Numbers</h2>
+          <p>Numbers are another common data type that you will see and use in the wild.</p>
+        </section>
+
+        <section>
+          <h2>Numbers</h2>
+          <p>The <strong>syntax</strong> for numbers in JavaScript is fairly intuitive.</p>
+            <pre>
+              <code class="javascript">
+42
+3.14
+100
+10000
+              </code>
+            </pre>
+        </section>
+
+        <section>
+          <h2>Numbers</h2>
+          <p>You can perform simple arithmetic on numbers using:</p>
+          	<table>
+          	  <tr>
+          	    <td>Addition</td>
+          	    <td>+</td>
+          	  </tr>
+          	  <tr>
+          	    <td>Subtraction</td>
+          	    <td>-</td>
+          	  </tr>
+          	  <tr>
+          	    <td>Multiplication</td>
+          	    <td>*</td>
+          	  </tr>
+          	  <tr>
+          	    <td>Division</td>
+          	    <td>/</td>
+          	  </tr>
+          	  <tr>
+          	    <td>Modulus</td>
+          	    <td>%</td>
+          	  </tr>
+          	  <tr>
+          	    <td>Increment</td>
+          	    <td>++</td>
+          	  </tr>
+          	  <tr>
+          	    <td>Decrement</td>
+          	    <td>--</td>
+          	  </tr>
+          	</table>
+        </section>
+
+        <section>
+          <h2>Numbers</h2>
+          <p>You can also perform simple comparison operations on numbers using:</p>
+          	<table>
+          	  <tr>
+          	    <td>Equality</td>
+          	    <td>===</td>
+          	  </tr>
+          	  <tr>
+          	    <td>Inequality</td>
+          	    <td>!==</td>
+          	  </tr>
+          	  <tr>
+          	    <td>Greater than</td>
+          	    <td>></td>
+          	  </tr>
+          	  <tr>
+          	    <td>Greater than or equal to</td>
+          	    <td>>=</td>
+          	  </tr>
+          	  <tr>
+          	    <td>Less than</td>
+          	    <td><</td>
+          	  </tr>
+          	  <tr>
+          	  	<td>Less than or equal to</td>
+          	  	<td><=</td>
+          	  </tr>
+          	</table>
+        </section>
+
+        <section>
+          <h2>Try it yourself!</h2>
+          <p>Open up your handy dandy <strong>JavaScript console</strong> by pressing <span class="breakout">Cmd+Opt+J</span> on Mac or <span class="breakout">Ctrl+Shift+J</span> on other systems.</p>
+          <img src="img/javascript-console.jpg">
+          <aside class="notes">
+          	What happens if you try to add a number to a string?
+          	What does the modulus operator do?
+          </aside>
+        </section>
+
+        <section>
+          <h2>Return values</h2>
+          <p class="fragment">Every time you press enter in the JavaScript console, you see the <strong>return value</strong> of expression you evaluated.</p>
+        </section>
+
+        <section>
+        	<h2>Return values</h2>
+        	<p>What <strong>data type</strong> did JavaScript return when you used a <strong>comparison operator</strong>?</p>
+        	<div class="fragment">
+        		<p>Comparison operators will always return a</p>
+        		<p><strong>Boolean</strong></p>
+        		<p>true or false</p>
+        	</div>
+
+        </section>
+
+        <section>
+          <h2>Back to variables</h2>
+          <p>Now we know how to create a few data types, let's save them for later in some <strong>variables</strong>.</p>
+        </section>
+
+        <section>
+          <h2>Variable syntax</h2>
+          <p>
+          	The syntax for <strong>declaring a variable</strong> in JavaScript is like this:
+          </p>
+          <pre>
+          	<code class="javascript">
+          		var magicNumber = 42;
+          	</code>
+          </pre>
+        </section>
+
+        <section>
+          <h2>Breaking it down</h2>
+          <pre>
+          	<code class="javascript">
+var          // is a reserved word used to declare a variable
+
+magicNumber  // is the variable name
+
+=            // is the assignment operator
+
+42           // is the value assigned to the variable
+
+;            // signifies the end of a statement in JavaScript
+          	</code>
+          </pre>
+        </section>
+
+        <section>
+          <h2>A note on naming</h2>
+          <p>Naming variables in <strong>camelCase</strong> is a JavaScript convention.</p>
+        </section>
+
+        <section>
+          <h2>Storing things</h2>
+          <p>You can directly assign values to <strong>variables</strong>...</p>
+          <pre>
+          	<code class="javascript">
+var seenIt = "...like we've already seen";
+          	</code>
+          </pre>
+          <p>...or store <strong>return values</strong> of expressions in <strong>variables</strong></p>
+          <pre>
+          	<code class="javascript">
+var num = 3;
+var otherNum = 4;
+var multiplier = 6;
+var answerToTheUltimateQuestion = (num + otherNum) * multiplier;
+          	</code>
+          </pre>
+          <aside class="notes">
+          	What value is stored in answerToTheUltimateQuestion?
+          </aside>
+        </section>
+
+        <section>
+          <h2>Data structures</h2>
+          <p>Let's look at two more <strong>data structures</strong>:</p>
+          <ul>
+          	<li>Arrays</li>
+          	<li>Objects</li>
+          </ul>
+          <aside class="notes">Note, I said data structures, not data types. There is a subtle difference.</aside>
+        </section>
+
+        <section>
+          <h2>Data structures</h2>
+          <p>For the following data structures, we are going to learn how to create, or <strong>instantiate</strong>, them and then learn the following operations:</p>
+          <ul>
+          	<li>Accessing values</li>
+          	<li>Updating values</li>
+          	<li>Inserting values</li>
+          	<li>Removing values</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Arrays</h2>
+          <p>Just like a <strong>variable</strong> holds a single value, an <strong>array</strong> holds a collection of values.</p>
+        </section>
+
+        <section>
+          <h2>Arrays</h2>
+          <p>Think of an array as a bunch of buckets, each of which stores a value.</p>
+          <img src="img/buckets.jpg">
+        </section>
+
+        <section>
+          <h2>Arrays</h2>
+          <p>If we were to put the first eight characters of the alphabet into these buckets, we would do so like this:</p>
+          <pre>
+          	<code class="javascript">
+var letters = ["a","b","c","d","e","f","g","h"];
+          	</code>
+          </pre>
+          <p>An <strong>array</strong> of the characters "a" through "h" is now stored in the variable letters. This is an array of <strong>strings</strong>.</p>
+        </section>
+
+        <section>
+        	<h2>Arrays</h2>
+        	<h4>Accessing values</h4>
+          <p>Every element in an array is stored in a specific position known as an <strong>index</strong>. Arrays are indexed starting at 0 and incrementing by 1 for each position.</p>
+          <table>
+            <tr>
+              <td>&nbsp;0</td>
+              <td>&nbsp;1</td>
+              <td>&nbsp;2</td>
+              <td>&nbsp;3</td>
+              <td>&nbsp;4</td>
+              <td>&nbsp;5</td>
+              <td>&nbsp;6</td>
+              <td>&nbsp;7</td>
+            </tr>
+            <tr>
+              <td>"a"</td>
+              <td>"b"</td>
+              <td>"c"</td>
+              <td>"d"</td>
+              <td>"e"</td>
+              <td>"f"</td>
+              <td>"g"</td>
+              <td>"h"<br></td>
+            </tr>
+          </table>
+        </section>
+
+        <section>
+        	<h2>Arrays</h2>
+        	<h4>Accessing values</h4>
+        	<pre>
+          	<code class="javascript">
+var letters = ["a","b","c","d","e","f","g","h"];
+letters[0] // returns "a"
+letters[7] // returns "h"
+          	</code>
+          </pre>
+        </section>
+
+        <section>
+        	<h2>Arrays</h2>
+        	<h4>Updating values</h4>
+        	<pre>
+          	<code class="javascript">
+var letters = ["a","b","c","d","e","f","g","h"];
+letters[0] = "apples"  // returns "apples"
+letters[1] = "bananas" // returns "bananas"
+letters      // returns ["apples","bananas","c","d","e","f","g","h"]
+          	</code>
+          </pre>
+        </section>
+
+        <section>
+        	<h2>Arrays</h2>
+        	<h4>Inserting values</h4>
+        	<pre>
+          	<code class="javascript">
+var letters = ["a","b","c","d"];
+letters.push("elephant") // returns "elephant"
+letters // returns ["a","b","c","d","elephant"]
+          	</code>
+          </pre>
+          <p>The <strong>push</strong> method adds an element to the end of an array.</p>
+        </section>
+
+        <section>
+        	<h2>Arrays</h2>
+        	<h4>Inserting values</h4>
+        	<pre>
+          	<code class="javascript">
+var letters = ["a","b","c","d", "elephant"];
+letters.unshift("zebra") // returns "zebra"
+letters // returns ["zebra","a","b","c","d", "elephant"]
+          	</code>
+          </pre>
+          <p>The <strong>unshift</strong> method adds an element to the start of an array.</p>
+          <aside class="notes">What element is in index zero of the array now?</aside>
+        </section>
+
+        <section>
+          <h1>omg lets build.</h1>
+          <p><a href="http://bit.ly/html-css-intro">http://bit.ly/html-css-intro</a></p>
+        </section>
+
+        <section>
+          <h2>Common elements: links</h2>
+          <p>A link has three main elements:</p>
+          <ul>
+            <li><strong>&lt;a&gt;</strong> - tag.</li>
+            <li><strong>href</strong> - attribute. (http://devbootcamp.com)</li>
+            <li><strong>value</strong> - text. (Dev Bootcamp)</li>
+          </ul>
+          <pre>
+            <code>
+  <a href="http://devbootcamp.com">Dev Bootcamp</a>
+            </code>
+          </pre>
+        </section>
+
+        <section>
+          <h2>Common elements: line breaks</h2>
+          <p>Using <strong>&lt;br /&gt;</strong> lets you add manual newlines into text content.</p>
+          <pre>
+            <code>
+  <p>
+    This is <br />
+    the part when I say <br />
+    I don't want ya <br />
+    I'm stronger than I've been before.
+  </p>
+            </code>
+          </pre>
+        </section>
+
+        <section>
+          <h2>Common elements: <br />unordered and ordered lists</h2>
+          <p><strong>&lt;ul&gt;</strong> and <strong>&lt;ol&gt;</strong> allow you to create lists with bullets or numbers respectively.</p>
+          <p><strong>&lt;li&gt;</strong> adds list items to either. This is where your <strong>content</strong> lives.</p>
+          <pre style="float: left; width:500px;">
+            <code>
+  <ul>
+    <li>List item one</li>
+    <li>List item two</li>
+    <li>List item three</li>
+  </ul>
+
+  <ol>
+    <li>List item one</li>
+    <li>List item two</li>
+    <li>List item three</li>
+  </ol>
+            </code>
+          </pre>
+          <img src="img/list-tags.png" style="margin-top: 40px;" />
+        </section>
+
+        <section>
+          <h2>List examples</h2>
+          <img src="img/example-lists.png" />
+        </section>
+
+        <section>
+          <h1>omg lets build.</h1>
+        </section>
+        <!-- A breakdown of CSS &#45; selector, property, value (10min) -->
+        <section>
+          <h2>What is CSS for?</h2>
+          <p><strong>C</strong>ascading <strong>S</strong>tyle <strong>S</strong>heets.</p>
+          <p>CSS is a style sheet language that lets you <br />style elements on the page.</p>
+          <p>CSS works <strong>in conjunction</strong> with HTML, but is not HTML itself.</p>
+        </section>
+
+        <section>
+          <h2>What can CSS do?</h2>
+          <p>All colors, positioning, and size.</p>
+          <img src="img/devbootcamp.png" width="700px" />
+        </section>
+
+        <section>
+          <h2>What does CSS look like?</h2>
+          <img src="img/homepage-css.png" />
+        </section>
+
+        <section>
+          <h2>A CSS Rule</h2>
+          <img src="img/cssrule.png" />
+        </section>
+
+        <section>
+          <h2>A CSS Rule</h2>
+          <ul>
+            <li>A block of code is a <strong>CSS rule</strong></li>
+            <li>The rule starts with a selector</li>
+            <li>It has sets of properties and values</li>
+            <li>A property-value pair is a declaration</li>
+          </ul>
+          <pre>
+            <code>
+  p {
+    background-color: lime;
+  }
+            </code>
+          </pre>
+        </section>
+
+        <section>
+          <h2>Selectors</h2>
+          <pre>
+            <code>
+  p { property: value; }
+            </code>
+          </pre>
+          <p>Selects all <strong>paragraph</strong> elements.</p>
+          <pre>
+            <code>
+  img { property: value; }
+            </code>
+          </pre>
+          <p>Selects all <strong>img</strong> elements.</p>
+        </section>
+
+        <section>
+          <h2>Declaration</h2>
+          <p>A <strong>declaration</strong> lets you modify a characteristic of an HTML element.</p>
+          <pre>
+            <code>
+  p {
+    color: white;
+    background-color: green;
+    font-family: Helvetica;
+  }
+            </code>
+          </pre>
+        </section>
+
+        <section>
+          <h2>Color properties</h2>
+          <p>The 17 standard colors are:
+            <font color="aqua" style="background:black;">aqua</font>,
+            <font color="black">black</font>,
+            <font color="blue">blue</font>,
+            <font color="fuchsia">fuchsia</font>,
+            <font color="gray">gray</font>,
+            <font color="grey">grey</font>,
+            <font color="green">green</font>,
+            <font color="lime">lime</font>,
+            <font color="maroon">maroon</font>,
+            <font color="navy">navy</font>,
+            <font color="olive">olive</font>,
+            <font color="purple">purple</font>,
+            <font color="red">red</font>,
+            <font color="silver" style="background:black;">silver</font>,
+            <font color="teal">teal</font>,
+            <font color="white" style="background:black;">white</font>, and
+            <font color="yellow" style="background:black;">yellow</font>.
+          </p>
+        </section>
+
+        <section>
+          <h1>omg lets build.</h1>
+        </section>
+
+        <section>
+          <h2>Resources to learn more</h2>
+          <ul>
+            <li>Code Academy</li>
+            <li>CodeSchool</li>
+            <li>Treehouse</li>
+          </ul>
+        </section>
+        <!-- A quick demo of positioning (10min) -->
+        <section>
+          <h2>Thanks for having us!</h2>
+        </section>
+        <!-- A quick demo of parent and hierarchical property inheritance (5min) -->
+        <!-- Examples of some common CSS properties and values (5min) -->
+        <!-- DEMO : Either change your website with colors and images, or play with a prebuilt site (30 min) -->
+
+      </div>
+
+    </div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
