@@ -382,7 +382,6 @@
             <p><strong>Boolean</strong></p>
             <p>true or false</p>
           </div>
-
         </section>
 
         <section>
@@ -475,7 +474,7 @@ var answerToTheUltimateQuestion = (num + otherNum) * multiplier;
         <section>
           <h2>Arrays</h2>
           <p>Think of an array as a bunch of buckets, each of which stores a value.</p>
-          <img src="img/buckets.jpg">
+          <img src="img/array-buckets.jpg">
         </section>
 
         <section>
@@ -623,12 +622,12 @@ push    // the name of the method
         </section>
 
         <section>
-          <h2>Attributes</h2>
-          <p>Things in JavaScript can also have <strong>attributes</strong>. You access and modify attributes similarly to methods, except you do not include the parentheses.</p>
+          <h2>Properties</h2>
+          <p>Things in JavaScript can also have <strong>properties</strong>. You access and modify properties similarly to methods, except you do not include the parentheses.</p>
         </section>
 
         <section>
-          <h2>Attributes</h2>
+          <h2>Properties</h2>
           <pre>
             <code class="javascript">
 var letters = ["apple","banana","carrot"];
@@ -638,172 +637,159 @@ letters.push("d");
 letters.length // returns 4
             </code>
           </pre>
-          <p><strong>length</strong> is a good example of an <strong>attribute</strong> on both arrays and strings. Note how attributes don't need parentheses after them.</p>
+          <p><strong>length</strong> is a good example of a <strong>property</strong> on both arrays and strings. Note how properties don't need parentheses after them.</p>
         </section>
 
         <section>
-          <h2>Methods vs Attributes</h2>
-          <p>It can be very confusing to know whether something is a <strong>method</strong> or an <strong>attribute</strong> when you start out with JavaScript. It's something you'll get used to.</p>
+          <h2>Methods vs Properties</h2>
+          <p>It can be very confusing to know whether something is a <strong>method</strong> or an <strong>property</strong> when you start out with JavaScript. It's something you'll get used to.</p>
           <p>Remember you always have the Web to look things up!</p>
         </section>
 
         <section>
-          <h1>omg lets build.</h1>
-          <p><a href="http://bit.ly/html-css-intro">http://bit.ly/html-css-intro</a></p>
+          <h2>Objects</h2>
+          <p><strong>Objects</strong> in JavaScript are similar to arrays in that they contain a collection of values.</p>
+          <p>However, unlike arrays which are <strong>ordered by index</strong>, the values in objects are stored in <strong>keys</strong> that you name yourself.</p>
         </section>
 
         <section>
-          <h2>Common elements: links</h2>
-          <p>A link has three main elements:</p>
+          <h2>Objects</h2>
+          <p>In our metaphor we give each bucket a name. This is the <strong>key</strong>. The item inside the bucket is its <strong>value</strong>. So, a JavaScript object is a collection of <strong>key value pairs</strong>.</p>
+          <img src="img/object-buckets.jpg">
+          <aside class="notes">If this collection of buckets was an object, what do you think it would represent?</aside>
+        </section>
+
+        <section>
+          <h2>Objects</h2>
+          <p>Let's <strong>instantiate</strong> an object in JavaScript:</p>
+          <pre>
+            <code class="javascript">
+var person = {name: "Sam", age: 28, sex: "male"};
+            </code>
+          </pre>
+          <p>This <strong>object</strong> contains three <strong>key value pairs</strong> and the object is stored in the variable `person`.</p>
+          <aside class="notes">What data type are the values in this object?</aside>
+        </section>
+
+                <section>
+          <h2>Objects</h2>
+          <h4>Accessing values</h4>
+          <pre>
+            <code class="javascript">
+var person = {name: "Sam", age: 28, sex: "male"};
+person.name      // returns "Sam"
+letters["name"]  // returns "Sam"
+            </code>
+          </pre>
+        </section>
+
+        <section>
+          <h2>Objects</h2>
+          <h4>Updating values</h4>
+          <pre>
+            <code class="javascript">
+var person = {name: "Sam", age: 28, sex: "male"};
+person.age = 29      // returns 29
+
+person
+// now contains
+{name: "Sam", age: 29, sex: "male"}
+
+person.age           // returns 29
+            </code>
+          </pre>
+        </section>
+
+        <section>
+          <h2>Objects</h2>
+          <h4>Inserting values</h4>
+          <pre>
+            <code class="javascript">
+var person = {name: "Sam", age: 28, sex: "male"};
+person.gender = "cis male"  // returns "cis male"
+
+person
+// now contains
+{name: "Sam", age: 28, sex: "male", gender: "cis male"}
+            </code>
+          </pre>
+        </section>
+
+        <section>
+          <h2>Objects</h2>
+          <h4>Removing values</h4>
+          <pre>
+            <code class="javascript">
+var person = {name: "Sam", age: 28, sex: "male", gender: "cis male"}
+delete person.sex // returns true
+
+person
+// now contains
+{name: "Sam", age: 28, gender: "cis male"}
+
+person.sex        // returns undefined
+            </code>
+          </pre>
+          <p>The <strong>delete</strong> operator removes a <strong>key value pair</strong> from an object.</p>
+          <aside class="notes">
+            Why did I not call `delete` a method?
+            It's relatively rare to use `delete`. Most often you are reading or accessing data. Second most, adding or inserting data. Third most, updating data. Rarely, deleting or removing data.
+          </aside>
+        </section>
+
+        <section>
+          <h2>Taxonomy</h2>
+          <p>We've been using <strong>dot notation</strong> when working with objects.</p>
+          <pre>
+            <code class="javascript">
+var person = {name: "Sam", age: 28, gender: "cis male"}
+
+person.name
+person.age
+person.gender
+            </code>
+          </pre>
+          <p>What type of thing does that suggest `name`, `age`, and `gender` are?</p>
+          <p class="fragment"><strong>properties</strong></p>
+        </section>
+
+        <section>
+          <h2>Taxonomy</h2>
+          <p>So what we generically call <strong>keys</strong> are specifically called <strong>properties</strong> in JavaScript.</p>
+          <p class="fragment">Also, these things we call <strong>objects</strong> in JavaScript can be called dictionaries, hashes, hash tables, or maps in other languages.</p>
+        </section>
+
+        <section>
+          <h1>omg let's build.</h1>
+          <p><a href=""></a></p>
+        </section>
+
+        <section>
+          <h2>Loops</h2>
+          <p>Doing certain things over and over and over and over is a <a target="_blank" href="https://youtu.be/gs9NgGZkErU?t=54s">very common thing when coding</a></p>
+        </section>
+
+        <section>
+          <h2>Loops</h2>
+          <p>We will look at the syntax for two JavaScript <strong>loops</strong>:</p>
           <ul>
-            <li><strong>&lt;a&gt;</strong> - tag.</li>
-            <li><strong>href</strong> - attribute. (http://devbootcamp.com)</li>
-            <li><strong>value</strong> - text. (Dev Bootcamp)</li>
+            <li>for</li>
+            <li>while</li>
           </ul>
+        </section>
+
+        <section>
+          <h2>Loops</h2>
           <pre>
-            <code>
-  <a href="http://devbootcamp.com">Dev Bootcamp</a>
+            <code class="javascript">
+var counter = 1;
+while (counter <= 10) {
+  console.log("I'm counting in multiples of five!");
+  console.log("Here's what's next: " + counter * 5)
+  counter++
+}
             </code>
           </pre>
-        </section>
-
-        <section>
-          <h2>Common elements: line breaks</h2>
-          <p>Using <strong>&lt;br /&gt;</strong> lets you add manual newlines into text content.</p>
-          <pre>
-            <code>
-  <p>
-    This is <br />
-    the part when I say <br />
-    I don't want ya <br />
-    I'm stronger than I've been before.
-  </p>
-            </code>
-          </pre>
-        </section>
-
-        <section>
-          <h2>Common elements: <br />unordered and ordered lists</h2>
-          <p><strong>&lt;ul&gt;</strong> and <strong>&lt;ol&gt;</strong> allow you to create lists with bullets or numbers respectively.</p>
-          <p><strong>&lt;li&gt;</strong> adds list items to either. This is where your <strong>content</strong> lives.</p>
-          <pre style="float: left; width:500px;">
-            <code>
-  <ul>
-    <li>List item one</li>
-    <li>List item two</li>
-    <li>List item three</li>
-  </ul>
-
-  <ol>
-    <li>List item one</li>
-    <li>List item two</li>
-    <li>List item three</li>
-  </ol>
-            </code>
-          </pre>
-          <img src="img/list-tags.png" style="margin-top: 40px;" />
-        </section>
-
-        <section>
-          <h2>List examples</h2>
-          <img src="img/example-lists.png" />
-        </section>
-
-        <section>
-          <h1>omg lets build.</h1>
-        </section>
-        <!-- A breakdown of CSS &#45; selector, property, value (10min) -->
-        <section>
-          <h2>What is CSS for?</h2>
-          <p><strong>C</strong>ascading <strong>S</strong>tyle <strong>S</strong>heets.</p>
-          <p>CSS is a style sheet language that lets you <br />style elements on the page.</p>
-          <p>CSS works <strong>in conjunction</strong> with HTML, but is not HTML itself.</p>
-        </section>
-
-        <section>
-          <h2>What can CSS do?</h2>
-          <p>All colors, positioning, and size.</p>
-          <img src="img/devbootcamp.png" width="700px" />
-        </section>
-
-        <section>
-          <h2>What does CSS look like?</h2>
-          <img src="img/homepage-css.png" />
-        </section>
-
-        <section>
-          <h2>A CSS Rule</h2>
-          <img src="img/cssrule.png" />
-        </section>
-
-        <section>
-          <h2>A CSS Rule</h2>
-          <ul>
-            <li>A block of code is a <strong>CSS rule</strong></li>
-            <li>The rule starts with a selector</li>
-            <li>It has sets of properties and values</li>
-            <li>A property-value pair is a declaration</li>
-          </ul>
-          <pre>
-            <code>
-  p {
-    background-color: lime;
-  }
-            </code>
-          </pre>
-        </section>
-
-        <section>
-          <h2>Selectors</h2>
-          <pre>
-            <code>
-  p { property: value; }
-            </code>
-          </pre>
-          <p>Selects all <strong>paragraph</strong> elements.</p>
-          <pre>
-            <code>
-  img { property: value; }
-            </code>
-          </pre>
-          <p>Selects all <strong>img</strong> elements.</p>
-        </section>
-
-        <section>
-          <h2>Declaration</h2>
-          <p>A <strong>declaration</strong> lets you modify a characteristic of an HTML element.</p>
-          <pre>
-            <code>
-  p {
-    color: white;
-    background-color: green;
-    font-family: Helvetica;
-  }
-            </code>
-          </pre>
-        </section>
-
-        <section>
-          <h2>Color properties</h2>
-          <p>The 17 standard colors are:
-            <font color="aqua" style="background:black;">aqua</font>,
-            <font color="black">black</font>,
-            <font color="blue">blue</font>,
-            <font color="fuchsia">fuchsia</font>,
-            <font color="gray">gray</font>,
-            <font color="grey">grey</font>,
-            <font color="green">green</font>,
-            <font color="lime">lime</font>,
-            <font color="maroon">maroon</font>,
-            <font color="navy">navy</font>,
-            <font color="olive">olive</font>,
-            <font color="purple">purple</font>,
-            <font color="red">red</font>,
-            <font color="silver" style="background:black;">silver</font>,
-            <font color="teal">teal</font>,
-            <font color="white" style="background:black;">white</font>, and
-            <font color="yellow" style="background:black;">yellow</font>.
-          </p>
         </section>
 
         <section>
@@ -818,9 +804,9 @@ letters.length // returns 4
             <li>Treehouse</li>
           </ul>
         </section>
-        <!-- A quick demo of positioning (10min) -->
+
         <section>
-          <h2>Thanks for having us!</h2>
+          <h2>Thanks for joining us!</h2>
         </section>
         <!-- A quick demo of parent and hierarchical property inheritance (5min) -->
         <!-- Examples of some common CSS properties and values (5min) -->
