@@ -474,7 +474,7 @@ var answerToTheUltimateQuestion = (num + otherNum) * multiplier;
         <section>
           <h2>Arrays</h2>
           <p>Think of an array as a bunch of buckets, each of which stores a value.</p>
-          <img src="img/array-buckets.jpg">
+          <img src="img/original-buckets.jpg">
         </section>
 
         <section>
@@ -514,6 +514,12 @@ var letters = ["a","b","c","d","e","f","g","h"];
               <td>"h"<br></td>
             </tr>
           </table>
+        </section>
+
+        <section>
+          <h2>Arrays</h2>
+          <p>You refer to each <strong>element</strong> by its <strong>index</strong>.</p>
+          <img src="img/array-buckets.jpg">
         </section>
 
         <section>
@@ -630,11 +636,11 @@ push    // the name of the method
           <h2>Properties</h2>
           <pre>
             <code class="javascript">
-var letters = ["apple","banana","carrot"];
-letters.length // returns 3
-letters[2].length // returns 6
-letters.push("d");
-letters.length // returns 4
+var fruits = ["apple","banana","carrot"];
+fruits.length // returns 3
+fruits[2].length // returns 6
+fruits.push("d");
+fruits.length // returns 4
             </code>
           </pre>
           <p><strong>length</strong> is a good example of a <strong>property</strong> on both arrays and strings. Note how properties don't need parentheses after them.</p>
@@ -755,13 +761,30 @@ person.gender
 
         <section>
           <h2>Taxonomy</h2>
-          <p>So what we generically call <strong>keys</strong> are specifically called <strong>properties</strong> in JavaScript.</p>
+          <p>So what we generically call <strong>keys</strong> are specifically called <strong>properties</strong> in JavaScript objects.</p>
           <p class="fragment">Also, these things we call <strong>objects</strong> in JavaScript can be called dictionaries, hashes, hash tables, or maps in other languages.</p>
         </section>
 
         <section>
           <h1>omg let's build.</h1>
           <p><a href=""></a></p>
+          <aside class="notes">
+            With your neighbor, model the following using the data types and structures you just learnt about:
+            <ul>
+              <li>A list of three different people</li>
+              <li>The people should have names, ages and a list of their favorite foods</li>
+            </ul>
+            If you want, you can use multiple variables to set everything up, but ultimately I want you to store all of this information inside a single variable. You should be able to enter your data structure into the console and not get any errors.s
+          </aside>
+        </section>
+
+        <section>
+          <h2>Up next</h2>
+          <ul>
+            <li>Loops</li>
+            <li>Conditionals</li>
+            <li>Functions</li>
+          </ul>
         </section>
 
         <section>
@@ -780,6 +803,7 @@ person.gender
 
         <section>
           <h2>Loops</h2>
+          <p>This is the syntax for a <strong>while loop</strong>.</p>
           <pre>
             <code class="javascript">
 var counter = 1;
@@ -788,6 +812,135 @@ while (counter <= 10) {
   console.log("Here's what's next: " + counter * 5)
   counter++
 }
+            </code>
+          </pre>
+        </section>
+
+        <section>
+          <h2>Loops</h2>
+          <p>Here's the same operation using a <strong>for loop</strong>.</p>
+          <pre>
+            <code class="javascript">
+for (var counter = 1; counter <= 10; counter++) {
+  console.log("I'm counting in multiples of five!");
+  console.log("Here's what's next: " + counter * 5)
+}
+            </code>
+          </pre>
+        </section>
+
+        <section>
+          <h2>Loops</h2>
+          <p>Compare the two:</p>
+          <pre>
+            <code class="javascript">
+var counter = 1;
+while (counter <= 10) {
+  console.log("I'm counting in multiples of five!");
+  console.log("Here's what's next: " + counter * 5)
+  counter++
+}
+// -------------------------------------------------
+
+for (var counter = 1; counter <= 10; counter++) {
+  console.log("I'm counting in multiples of five!");
+  console.log("Here's what's next: " + counter * 5)
+}
+            </code>
+          </pre>
+        </section>
+
+        <section>
+          <h2>Warning!</h2>
+          <p>Be careful not to code a loop that will never end. It will cause your browser to freeze and crash!</p>
+          <pre>
+            <code class="javascript">
+// Don't run the following code!
+var counter = 1;
+while (counter <= 10) {
+  console.log("I'm counting in multiples of five!");
+  console.log("Here's what's next: " + counter * 5)
+}
+            </code>
+          </pre>
+          <p>This is called an <strong>infinite loop</strong>. Can you see why it never ends?</p>
+        </section>
+
+        <section>
+          <h2>Loops</h2>
+          <p>Here's a fun game with a <strong>while loop</strong>.</p>
+          <pre>
+            <code class="javascript">
+var secretPhrase = "bananas"
+var userInput
+while (userInput !== secretPhrase) {
+  userInput = prompt("Haha! You will continue to get this annoying\
+  pop up until you guess the secret phrase!")
+}
+alert("Drat! You guessed it!")
+            </code>
+          </pre>
+        </section>
+
+        <section>
+          <h2>Loops</h2>
+          <p>The most common use of loops is to <strong>loop over collections</strong>. We loop over collections when we want to do something with every element in a collection.</p>
+        </section>
+
+        <section>
+          <h2>Loops</h2>
+          <p>Here's a <strong>for loop</strong> looping over and printing out every element in our letters array:</p>
+          <pre>
+            <code class="javascript">
+var letters = ["a","b","c","d","e","f","g","h"];
+for (var i = 0; i < letters.length; i++) {
+  console.log(letters[i]);
+}
+            </code>
+          </pre>
+          <p>There's a lot going on here. So let's talk through it.</p>
+        </section>
+
+        <section>
+          <h2>Try it yourself!</h2>
+          <p>Open up your handy dandy <strong>JavaScript console</strong> by pressing <span class="breakout">Cmd+Opt+J</span> on Mac or <span class="breakout">Ctrl+Shift+J</span> on other systems.</p>
+          <img src="img/javascript-console.jpg">
+          <aside class="notes">
+            Try looping over the list of people you made in our last breakout sesssion and printing out everyone's name AND their age...
+            You can paste your data structure into the console, or you can write your loop in the file on your desktop.
+          </aside>
+        </section>
+
+        <section>
+          <h2>Conditionals</h2>
+          <p>Sometimes you want your code to do different things depending on different inputs. This is called <strong>control flow</strong>.</p>
+        </section>
+
+        <section>
+          <h2>Conditionals</h2>
+          <p>Maybe you need to check someone's age before you let them use your program:</p>
+          <pre>
+            <code class="javascript">
+var age = prompt("How old are you?");
+if (age >= 18) {
+  alert("Welcome to this program!")
+} else {
+  alert("Sorry, you must be 18 or over to use this program.")
+}
+            </code>
+          </pre>
+        </section>
+
+        <section>
+          <h2>Breaking it down</h2>
+          <p></p>
+          <pre>
+            <code class="javascript">
+if           // reserved word to start a condtional
+(age >= 18)  // the "condition"
+{}           // the "code block" to run if the condition is true
+else         // reserved word at the end of a conditional
+{}           // the code block to run if all conditions are false
             </code>
           </pre>
         </section>
@@ -808,12 +961,7 @@ while (counter <= 10) {
         <section>
           <h2>Thanks for joining us!</h2>
         </section>
-        <!-- A quick demo of parent and hierarchical property inheritance (5min) -->
-        <!-- Examples of some common CSS properties and values (5min) -->
-        <!-- DEMO : Either change your website with colors and images, or play with a prebuilt site (30 min) -->
-
       </div>
-
     </div>
 
     <script src="lib/js/head.min.js"></script>
