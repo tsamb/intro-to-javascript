@@ -767,7 +767,7 @@ person.gender
 
         <section>
           <h1>omg let's build.</h1>
-          <p><a href=""></a></p>
+          <p><a href="">bit.ly</a></p>
           <aside class="notes">
             With your neighbor, model the following using the data types and structures you just learnt about:
             <ul>
@@ -1052,15 +1052,119 @@ var woohoo = function() {
         </section>
 
         <section>
+          <h2>Some new files!</h2>
+          <a href="">bit.ly</a>
+        </section>
+
+        <section>
           <h2>Loading jQuery</h2>
+          <p>In the index.html file, you'll see a <strong>&lt;script&gt; element</strong> linking to a copy of the jQuery in the same folder. This is one way to include jQuery on your page.</p>
+          <p class="fragment">You'll also see a &lt;script&gt; element that is commented out. This is another way of including jQuery: by linking to an external source.</p>
         </section>
 
         <section>
           <h2>Selecting elements</h2>
+          <p>We are going to be playing with the <strong>HTML elements</strong> on our page. To do that, we first need to <strong>select</strong> those elements using jQuery.</p>
+        </section>
+
+        <section>
+          <h2>Selecting elements</h2>
+          <p>The syntax for <strong>selecting elements</strong> with jQuery is:</p>
+          <pre>
+            <code class="javascript">
+$("div")
+            </code>
+          </pre>
+          <p>This will select all of the div elements on the page.</p>
+        </section>
+
+        <section>
+          <h2>Selecting elements</h2>
+          <p>You can use any <strong>CSS selection</strong> syntax with jQuery:</p>
+          <pre>
+            <code class="javascript">
+// to select all paragraph elements:
+$("p")
+
+// to select all elements with the class 'shadow':
+$(".shadow")
+
+// to select the element with the id 'main-container':
+$("#main-container")
+            </code>
+          </pre>
+          <p>Just remember to wrap your <strong>selector</strong> in quote marks to make it a <strong>string</strong>.</p>
+        </section>
+
+        <section>
+          <h2>jQuery methods</h2>
+          <p>Once we have selected elements, we can <strong>call jQuery methods</strong> on those elements:</p>
+          <pre>
+            <code class="javascript">
+$("p").css("background-color", "aqua");
+            </code>
+          </pre>
+          <p>This selects all paragraphs and then turns their background colors <span style="color: aqua; font-weight: 600;">aqua!</span></p>
+        </section>
+
+        <section>
+          <h2>Try it yourself!</h2>
+          <p>Open up your handy dandy <strong>JavaScript console</strong> by pressing <span class="breakout">Cmd+Opt+J</span> on Mac or <span class="breakout">Ctrl+Shift+J</span> on other systems.</p>
+          <p>Make sure you open it up on the  <strong>index.html</strong> page that has jQuery loaded!</p>
+          <img src="img/javascript-console.jpg">
+          <aside class="notes">
+            <ul>
+              <li>Try changing the styling of different elements using jQuery.</li>
+              <li>Replace the text in the paragraph using the "text" jQuery method.</li>
+            </ul>
+          </aside>
         </section>
 
         <section>
           <h2>Listening for events</h2>
+          <p>Interacting with a website through <strong>clicks</strong> and <strong>keystrokes</strong> really brings JavaScript (and websites) to life!</p>
+        </section>
+
+        <section>
+          <h2>Listening for events</h2>
+          <p>Let's learn how to tell certain elements on our page to <strong>listen for a click event</strong>.</p>
+        </section>
+
+        <section>
+          <h2>Listening for events</h2>
+          <p>First we need to <strong>select an element</strong>. Let's select our button:</p>
+          <pre>
+            <code class="javascript">
+$("#load-tweets-button")
+            </code>
+          </pre>
+        </section>
+
+        <section>
+          <h2>Listening for events</h2>
+          <p>Now we need to <strong>bind a click event</strong> to our button:</p>
+          <pre>
+            <code class="javascript">
+$("#load-tweets-button").click(function() {
+  alert("Button clicked!");
+})
+            </code>
+          </pre>
+          <p>What this says is: 'whenever this thing I have selected is clicked, run the code in this function'.</p>
+        </section>
+
+        <section>
+          <h2>Listening for events</h2>
+          <p>One very common thing to do when a button is clicked is to <strong>update something else on the page</strong>.</p>
+          <pre>
+            <code class="javascript">
+$("#load-tweets-button").click(function() {
+  // your code here that updates something else on the page, maybe:
+  $("p").css("background-color", "aqua");
+})
+            </code>
+          </pre>
+          <p>Now whenever you click the button, all the paragraphs will turn <span style="color: aqua; font-weight: 600;">aqua!</span></p>
         </section>
 
         <section>
@@ -1068,15 +1172,62 @@ var woohoo = function() {
         </section>
 
         <section>
+          <h2>Updating the page</h2>
+          <p>Here's one more super helpful <strong>jQuery method</strong> called `append`:</p>
+          <pre>
+            <code class="javascript">
+$("#main-container").append("<p>A friendly paragraph!</p>")
+            </code>
+          </pre>
+          <p>The append method will append whatever <strong>HTML string</strong> you pass it as an argument to the element(s) you originally <strong>selected</strong>.</p>
+        </section>
+
+        <section>
+          <h2>Updating the page</h2>
+          <p>Remember, you can add things to strings like this: </p>
+          <pre>
+            <code class="javascript">
+var dataFromSomewhere = "A friendly paragraph!"
+$("#main-container").append("<p>" + dataFromSomewhere + "</p>")
+            </code>
+          </pre>
+          <p>This is called <strong>string concatenation</strong>.</p>
+        </section>
+
+        <section>
+          <h2>Putting it all together</h2>
+          <p>You now have all the tools to dynamically create a webpage! It might strain your brain, but it's time to put <strong>everything we learnt into practice</strong>.</p>
+        </section>
+
+        <section>
           <h1>omg let's build.</h1>
+          <aside class="notes">
+            <p>Task: when you click the button all of the tweet text from inside the tweets array will appear in new paragraphs on the page.</p>
+            You will need to use:
+            <ul>
+              <li>Loops</li>
+              <li>Array methods</li>
+              <li>Object methods</li>
+              <li>jQuery selectors</li>
+              <li>jQuery event listeners</li>
+              <li>the jQuery append method</li>
+            </ul>
+          </aside>
         </section>
 
         <section>
           <h2>Resources to learn more</h2>
           <ul>
-            <li>Code Academy</li>
-            <li>CodeSchool</li>
+            <li>Codecademy</li>
+            <li>Code School</li>
             <li>Treehouse</li>
+            <li>Stack Overflow</li>
+            <li>jQuery Documentation</li>
+            <li>MDN (Mozilla Developer Network)</li>
+            <li>W3 Schools</li>
+            <li>Guides and blog posts</li>
+            <li>Google</li>
+            <li>Playing around!</li>
           </ul>
         </section>
 
