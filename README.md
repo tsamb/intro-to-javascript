@@ -1,3 +1,3 @@
-# Intro to JS
+# JavaScript for Beginners
 
-Draft copy of Intro to JS slides. Built with reveal.js.
+This repository contains the slide deck and template files for Dev Bootcamp's JavaScript for Beginners workshop.
